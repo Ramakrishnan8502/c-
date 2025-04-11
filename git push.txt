@@ -14,3 +14,11 @@ git push -u origin main
 💡 Notes:
 If the GitHub repo already has code, run:
 git pull origin main --allow-unrelated-histories
+
+
+how to update file to a git
+# Make changes to a file
+git add .
+git commit -m "Updated file with new content"
+git pull origin main     # optional, if collaborating
+git push origin main
