@@ -1,1 +1,1 @@
-# c-
+i started learing C++.
