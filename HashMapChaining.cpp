@@ -43,29 +43,18 @@ void Hashtable::Insert(int key)
     temp->Data = key;
     temp->Next = NULL;
 
-    if(HT[idx] == NULL )
+    if(HT[idx] == NULL || HT[idx]-> Data >= key)
     {
+        temp->Next = HT[idx];
         HT[idx] = temp;
     }
     else
     {
-        Node *p = HT[idx];
-        Node *q = HT[idx];
-        while(p != NULL && p->Data < key)
-        {
-            q = p;
-            p = p->Next;
-        }
-        if(q==HT[idx])
-        {
-            temp->Next =  HT[idx];
-            HT[idx] = temp;
-         }
-         else
-         {
-            temp -> Next = q -> Next;
-            q->Next = temp;
-         }
+      Node *Current = HT[idx];
+      while(Current -> Next != NULL && Current->Next->Data < key)
+      {
+        Current = Current->Next;
+      }
     }
 }
 
@@ -116,7 +105,7 @@ void Hashtable::Display()
 
 int main()
 {
-    int A[] = {1,34,76,9,3,34,45,11,23,67};
+    int A[] = {1,34,76,9,3,24,45,11,23,67};
     Hashtable H;
     for(int i = 0;i < 10 ;i++)
     {
